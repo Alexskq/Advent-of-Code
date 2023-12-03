@@ -44,13 +44,17 @@ function partTwo(file) {
         green: 0,
         blue: 0,
       };
+      // console.log(line.split(": "));
+      // console.log(line.split(": ")[1].split("; "));
       line
         .split(": ")[1]
         .split("; ")
         .forEach((set) => {
           const tirages = set.split(", ");
+          console.log(tirages);
           return tirages.forEach((tirage) => {
             const [count, color] = tirage.split(" ");
+            console.log(count, color);
             if (maxCount[color] < Number(count)) {
               maxCount[color] = Number(count);
             }
@@ -61,4 +65,4 @@ function partTwo(file) {
     .reduce((sum, v) => sum + v);
 }
 
-console.log(partTwo("./input2.txt"));
+console.log(partTwo("./example.txt"));
